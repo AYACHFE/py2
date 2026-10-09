@@ -2,22 +2,21 @@ import numpy as np
 from PIL import Image
 
 
-def ft_load(path: str) -> np.array:
+def ft_load(path: str) -> np.ndarray:
     """
-    Loads an image and returns it as a numpy array
+    Load an image from disk and return its pixel data.
 
     Parameters:
-    path (string): the path of the image to be rotated.
+        path (str): location of the image file to load.
 
-    Return value:
-    np.array: the 2D numpy array representation of the image.
+    Returns:
+        np.ndarray: array representation of the image.
     """
     try:
-        with Image.open(path) as image:
-            image_array = np.array(image)
-            print(f'The shape of the image is: {image_array.shape}')
-            return image_array
-
+        with Image.open(path) as img:
+            pixels = np.asarray(img).copy()
     except Exception as e:
         exit(f'Exception: {e}')
-    return None
+
+    print(f"The shape of the image is: {pixels.shape}")
+    return pixels
