@@ -19,4 +19,5 @@ def ft_load(path: str) -> np.ndarray:
         exit(f'Exception: {e}')
 
     print(f"The shape of the image is: {pixels.shape}")
+    print(pixels)
     return pixels

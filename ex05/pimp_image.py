@@ -18,7 +18,7 @@ def ft_invert(array) -> np.ndarray:
 
 def ft_red(array) -> np.ndarray:
     """Keeps only the red channel of the image received."""
-    result = array * 1
+    result = array.copy()
     result[:, :, 1] = result[:, :, 1] * 0
     result[:, :, 2] = result[:, :, 2] * 0
     _show(result, "Red")
@@ -27,7 +27,7 @@ def ft_red(array) -> np.ndarray:
 
 def ft_green(array) -> np.ndarray:
     """Keeps only the green channel of the image received."""
-    result = array - 0
+    result = array.copy()
     result[:, :, 0] = result[:, :, 0] - array[:, :, 0]
     result[:, :, 2] = result[:, :, 2] - array[:, :, 2]
     _show(result, "Green")
